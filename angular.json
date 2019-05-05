@@ -130,6 +130,41 @@
           }
         }
       }
+    },
+    "autowired": {
+      "root": "projects/autowired",
+      "sourceRoot": "projects/autowired/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/autowired/tsconfig.lib.json",
+            "project": "projects/autowired/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/autowired/src/test.ts",
+            "tsConfig": "projects/autowired/tsconfig.spec.json",
+            "karmaConfig": "projects/autowired/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/autowired/tsconfig.lib.json",
+              "projects/autowired/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "bean-autowired"
