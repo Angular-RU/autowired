@@ -3,17 +3,17 @@ import { Injectable, Injector } from '@angular/core';
 @Injectable()
 export class BeanInjector {
 
-  private static context: Injector | null = null;
+  private static injector: Injector | null = null;
 
-  constructor(context: Injector) {
-    BeanInjector.context = context;
+  constructor(injector: Injector) {
+    BeanInjector.injector = injector;
   }
 
-  public static getContext(): never | Injector {
-    if (!this.context) {
+  public static getInjector(): never | Injector {
+    if (!this.injector) {
       throw new Error(`You've forgotten to import \`BeanAccessibleModule\``);
     }
 
-    return this.context;
+    return this.injector;
   }
 }

@@ -3,16 +3,16 @@ import { BeanAccessibleModule } from '@angular-ru/autowired';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AppService } from './app.service';
+import { FeatureModule } from "./feature/feature.module";
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    BeanAccessibleModule.forRoot()
+    BeanAccessibleModule.forRoot(),
+    FeatureModule
   ],
-  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
