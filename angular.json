@@ -14,6 +14,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "preserveSymlinks": true,
           "options": {
+            "aot": true,
             "outputPath": "dist/bean-autowired",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -49,6 +50,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -133,11 +138,16 @@
           "options": {
             "tsConfig": "projects/autowired/tsconfig.lib.json",
             "project": "projects/autowired/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/autowired/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
-          "options": {
+          "options§": {
             "main": "projects/autowired/src/test.ts",
             "tsConfig": "projects/autowired/tsconfig.spec.json",
             "karmaConfig": "projects/autowired/karma.conf.js"
