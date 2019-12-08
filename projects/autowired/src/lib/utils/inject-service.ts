@@ -1,6 +1,6 @@
 import { INJECTOR, Injector, Type, ɵɵdirectiveInject as directiveInject } from '@angular/core';
-import { getReflectType } from './get-reflect-type';
 import { ClassRef, InjectableMeta, Key } from '../interfaces/internals';
+import { getReflectType } from './get-reflect-type';
 
 export function injectService<T>(target: Object, key: Key, meta: InjectableMeta<T>): void {
   let localInjector: Injector;
@@ -9,8 +9,8 @@ export function injectService<T>(target: Object, key: Key, meta: InjectableMeta<
   const classRef: ClassRef<T> = getReflectType<T>(target, key);
 
   if (meta) {
-    const factory = meta.factory;
-    meta.factory = () => {
+    const factory = meta.ɵfac;
+    meta.ɵfac = () => {
       const instance = factory(target.constructor as any);
       localInjector = directiveInject(INJECTOR);
       return instance;

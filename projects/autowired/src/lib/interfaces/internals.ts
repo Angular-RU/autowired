@@ -1,20 +1,6 @@
-import {
-  Type,
-  ɵComponentDef as ComponentDef,
-  ɵDirectiveDef as DirectiveDef,
-  ɵPipeDef as PipeDef,
-  ɵɵInjectableDef as InjectableDef
-} from '@angular/core';
-
-export interface PipeType<T> extends Type<T> {
-  ngPipeDef: never;
+export interface InjectableMeta<T> {
+  ɵfac: (...args: any[]) => any;
 }
-
-export type InjectableMeta<T> =
-  | ComponentDef<T>
-  | DirectiveDef<T>
-  | InjectableDef<T>
-  | PipeDef<T>;
 
 export type Key = string | symbol;
 

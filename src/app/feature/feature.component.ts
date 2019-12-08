@@ -1,12 +1,12 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { Autowired } from '@angular-ru/autowired';
 import { FeatureService } from './feature.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog.component';
 
 @Component({
   selector: 'feature',
-  templateUrl: 'feature.component.html'
+  templateUrl: './feature.component.html'
 })
 export class FeatureComponent implements AfterViewInit {
   @Autowired() public ser: FeatureService;

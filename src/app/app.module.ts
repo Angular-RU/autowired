@@ -8,10 +8,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MyPipe } from './my.pipe';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent, MyPipe],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    MatDialogModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
+  ],
   bootstrap: [AppComponent],
   providers: [AppService, AnyService]
 })
