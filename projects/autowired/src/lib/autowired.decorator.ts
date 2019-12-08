@@ -1,16 +1,20 @@
-import 'reflect-metadata';
-import { InjectionToken, Injector, Type } from '@angular/core';
-import { BeanInjector } from './bean-injector.service';
+import { InjectableMeta, Key } from './interfaces/internals';
+import { injectService } from './utils/inject-service';
+import { ensureInjectableTypeMeta } from './utils/ensure-injectable-type-meta';
 
-export function Autowired(token?: Type<unknown> | InjectionToken<unknown>): PropertyDecorator {
-  return (target: any, key: string) => {
-    const type: Type<unknown> = Reflect.getMetadata('design:type', target, key);
-    Object.defineProperty(target, key, {
-      configurable: false,
-      get() {
-        const injector: Injector = BeanInjector.getInjector();
-        return injector.get(token || type);
-      }
-    });
+export function Autowired<T = any>(): PropertyDecorator {
+  return (target: Object, key: Key) => {
+    let meta: InjectableMeta<T> = ensureInjectableTypeMeta(target);
+
+    if (meta) {
+      // Note: AOT
+      injectService(target, key, meta);
+    } else {
+      Promise.resolve().then(() => {
+        // Note: JIT
+        meta = ensureInjectableTypeMeta(target);
+        injectService(target, key, meta);
+      });
+    }
   };
 }

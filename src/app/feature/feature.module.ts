@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { FeatureComponent } from './feature.component';
+import { FeatureService } from './feature.service';
+import { MatDialogModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog.component';
 import { CommonModule } from '@angular/common';
-import {AppService} from "./app.service";
 
 @NgModule({
-  providers: [AppService],
+  declarations: [FeatureComponent, DialogOverviewExampleDialogComponent],
+  providers: [FeatureService],
   imports: [
-    CommonModule
+    FormsModule,
+    CommonModule,
+    MatDialogModule,
+    RouterModule.forChild([{ path: '', component: FeatureComponent }])
   ]
 })
-export class FeatureModule { }
+export class FeatureModule {}
