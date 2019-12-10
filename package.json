@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --aot=true --open",
     "build": "ng build --prod",
+    "build:lib": "ng build autowired --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

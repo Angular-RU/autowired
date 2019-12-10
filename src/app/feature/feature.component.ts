@@ -26,7 +26,7 @@ export class FeatureComponent implements AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The dialog was closed', result);
       this.animal = result;
     });
   }

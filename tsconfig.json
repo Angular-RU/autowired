@@ -20,7 +20,6 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
     "paths": {
-      "@angular/*": ["./node_modules/@angular/*"],
       "@angular-ru/autowired": ["projects/autowired/src/public-api.ts"]
     }
   }

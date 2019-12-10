@@ -1,5 +1,5 @@
-import { Key } from './interfaces/internals';
 import { InjectionToken } from '@angular/core';
+import { Key } from './interfaces/internals';
 import { injectToken } from './utils/inject-token';
 
 export function Qualifier<T = any>(token: InjectionToken<T>): PropertyDecorator {
