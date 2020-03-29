@@ -15,10 +15,6 @@ export function injectService<T>(target: Object, key: Key, meta: InjectableMeta<
     meta.ɵfac = () => {
       const instance = factory(target.constructor as any);
       localInjector = directiveInject(INJECTOR);
-      setTimeout(() => {
-        console.log('fuck')
-      }, 3000)
-      console.log('created');
       return instance;
     };
   }
@@ -39,16 +35,11 @@ export function injectService<T>(target: Object, key: Key, meta: InjectableMeta<
 
         try {
           if (!localInjector) {
-            // localInjector = directiveInject(INJECTOR) || createInjector(INJECTOR);
-            console.log('localInjector', localInjector);
+            localInjector = directiveInject(INJECTOR) || createInjector(INJECTOR);
           }
 
-          this[cachedId] = localInjector.get<T>(classRef);
-        } catch (e) {
-          console.log('e', e.message);
-          //this[cachedId] = directiveInject<T>(classRef);
-          console.log(2);
-        }
+          this[cachedId] = localInjector?.get<T>(classRef) || directiveInject<T>(classRef);
+        } catch (e) {}
 
         return this[cachedId];
       }

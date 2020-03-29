@@ -2,11 +2,11 @@ import { Component, Injectable } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Autowired } from '@angular-ru/autowired';
 
-import 'reflect-metadata';
-
+// @ts-ignore
 describe('Simple usage @Autowired', () => {
-  it('should be correct ensure service', async (done) => {
-    @Injectable({providedIn:'root'})
+  // @ts-ignore
+  it('should be correct ensure service', () => {
+    @Injectable({ providedIn: 'root' })
     class AppService {
       public get name(): string {
         return 'appName';
@@ -25,16 +25,12 @@ describe('Simple usage @Autowired', () => {
       }
     }
 
-    await TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       declarations: [AppComponent],
       providers: [AppService]
     }).compileComponents();
 
     const app = TestBed.createComponent(AppComponent);
     console.log('app', app.componentInstance.appRef());
-
-    setTimeout(() => {
-      done()
-    }, 4000)
   });
 });

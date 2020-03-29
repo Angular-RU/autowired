@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import 'jest-preset-angular';
 
 const jsdom: any = require('jsdom');

@@ -1,32 +1,31 @@
+const path = require('path');
 const { pathsToModuleNameMapper: resolver } = require('ts-jest/utils');
 const { compilerOptions } = require('./tsconfig');
+
 const moduleNameMapper = resolver(compilerOptions.paths, { prefix: '<rootDir>/' });
-const path = require('path');
 
 module.exports = {
-  verbose: null,
+  verbose: true,
   watch: false,
-  cache: true,
-  moduleNameMapper,
-  maxConcurrency: 10,
-  rootDir: path.resolve('.'),
+  cache: false,
+  maxWorkers: 3,
+  maxConcurrency: 3,
   preset: 'jest-preset-angular',
-  cacheDirectory: '<rootDir>/cache',
-  testMatch: ['<rootDir>/projects/**/*.spec.ts'],
-  collectCoverageFrom: ['<rootDir>/projects/autowired/src/**/*.ts'],
+  rootDir: path.resolve('.'),
+  testMatch: ['<rootDir>/**/*.spec.ts'],
+  collectCoverageFrom: ['<rootDir>/projects/**/*.ts'],
   setupFilesAfterEnv: ['<rootDir>/setupJest.ts'],
   coverageReporters: ['json', 'lcovonly', 'lcov', 'text', 'html'],
   coveragePathIgnorePatterns: ['/node_modules/'],
-  modulePathIgnorePatterns: ['<rootDir>/dist/'],
-  collectCoverage: true,
   globals: {
     'ts-jest': {
       tsConfig: '<rootDir>/tsconfig.json',
-      stringifyContentPathRegex: '\\.html$',
-      astTransformers: [
-        'jest-preset-angular/build/InlineFilesTransformer',
-        'jest-preset-angular/build/StripStylesTransformer'
-      ]
+      allowSyntheticDefaultImports: true
     }
-  }
+  },
+  bail: true,
+  roots: ['<rootDir>'],
+  moduleNameMapper,
+  modulePathIgnorePatterns: ['<rootDir>/dist/'],
+  modulePaths: ['<rootDir>']
 };
