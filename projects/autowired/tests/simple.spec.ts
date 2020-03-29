@@ -1,10 +1,10 @@
 import { Component, Injectable } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { Autowired } from '@angular-ru/autowired';
+import { Autowired, enableInjectionTesting } from '@angular-ru/autowired';
 
-// @ts-ignore
 describe('Simple usage @Autowired', () => {
-  // @ts-ignore
+  enableInjectionTesting(TestBed);
+
   it('should be correct ensure service', () => {
     @Injectable({ providedIn: 'root' })
     class AppService {
@@ -31,6 +31,6 @@ describe('Simple usage @Autowired', () => {
     }).compileComponents();
 
     const app = TestBed.createComponent(AppComponent);
-    console.log('app', app.componentInstance.appRef());
+    expect(app.componentInstance.appRef().name).toEqual('appName');
   });
 });

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Autowired } from '@angular-ru/autowired';
 import { AppService } from './app.service';
 
@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 })
 export class AppComponent implements OnInit {
   @Autowired() public app: AppService;
+  @Autowired() public cd: ChangeDetectorRef;
 
   public title = '';
 
