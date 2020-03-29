@@ -13,6 +13,7 @@
     "declaration": false,
     "module": "esnext",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,

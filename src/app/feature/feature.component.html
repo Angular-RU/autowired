@@ -1,7 +1,9 @@
-<input type="text" placeholder="animal" [(ngModel)]="animal">
-<input type="text" placeholder="name" [(ngModel)]="name">
+<div class="feature">
+  <div>
+    <input type="text" placeholder="animal" [(ngModel)]="animal" />
+    <input type="text" placeholder="name" [(ngModel)]="name" />
+    <button (click)="openDialog()">openDialog</button>
+  </div>
 
-animal = {{animal}} <br>
-name = {{name}} <br>
-
-<button (click)="openDialog()">openDialog</button>
+  <div>animal = {{ animal }}, name = {{ name }}</div>
+</div>

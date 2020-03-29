@@ -1,6 +1,6 @@
-import { InjectableMeta, Key } from './interfaces/internals';
-import { injectService } from './utils/inject-service';
-import { ensureInjectableTypeMeta } from './utils/ensure-injectable-type-meta';
+import { InjectableMeta, Key } from '../interfaces/internals';
+import { injectService } from '../utils/inject-service';
+import { ensureInjectableTypeMeta } from '../utils/ensure-injectable-type-meta';
 
 export function Autowired<T = any>(): PropertyDecorator {
   return (target: Object, key: Key) => {

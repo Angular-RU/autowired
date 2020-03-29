@@ -1,15 +1,17 @@
 import { INJECTOR, Injector, Type, ɵɵdirectiveInject as directiveInject } from '@angular/core';
+import { ɵcreateInjector as createInjector } from '@angular/core';
 import { ClassRef, InjectableMeta, Key } from '../interfaces/internals';
 import { getReflectType } from './get-reflect-type';
 
 export function injectService<T>(target: Object, key: Key, meta: InjectableMeta<T>): void {
   let localInjector: Injector;
   const name: string = key.toString();
-  const hash: string = `#${name}__service`;
+  const cachedId: string = `#_${name}__service`;
   const classRef: ClassRef<T> = getReflectType<T>(target, key);
 
   if (meta) {
     const factory = meta.ɵfac;
+
     meta.ɵfac = () => {
       const instance = factory(target.constructor as any);
       localInjector = directiveInject(INJECTOR);
@@ -18,7 +20,7 @@ export function injectService<T>(target: Object, key: Key, meta: InjectableMeta<
   }
 
   Object.defineProperties(target, {
-    [hash]: {
+    [cachedId]: {
       writable: true,
       enumerable: false,
       configurable: true
@@ -27,17 +29,19 @@ export function injectService<T>(target: Object, key: Key, meta: InjectableMeta<
       enumerable: true,
       configurable: true,
       get(): Type<T> {
-        if (this[hash]) {
-          return this[hash];
+        if (this[cachedId]) {
+          return this[cachedId];
         }
 
         try {
-          this[hash] = localInjector.get<T>(classRef);
-        } catch {
-          this[hash] = directiveInject<T>(classRef);
-        }
+          if (!localInjector) {
+            localInjector = directiveInject(INJECTOR) || createInjector(INJECTOR);
+          }
 
-        return this[hash];
+          this[cachedId] = localInjector?.get<T>(classRef) || directiveInject<T>(classRef);
+        } catch (e) {}
+
+        return this[cachedId];
       }
     }
   });
