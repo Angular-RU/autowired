@@ -16,7 +16,7 @@ export class DialogOverviewExampleDialogComponent implements OnInit {
     console.log(this.data);
   }
 
-  onNoClick(): void {
+  save(): void {
     this.dialogRef.close(this.data.animal);
   }
 }

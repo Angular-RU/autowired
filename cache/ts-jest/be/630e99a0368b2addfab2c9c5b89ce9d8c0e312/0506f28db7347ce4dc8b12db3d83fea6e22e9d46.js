@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/*
+ * Public API Surface of autowired
+ */
+var autowired_decorator_1 = require("./lib/decorators/autowired.decorator");
+exports.Autowired = autowired_decorator_1.Autowired;
+var qualifier_decorator_1 = require("./lib/decorators/qualifier.decorator");
+exports.Qualifier = qualifier_decorator_1.Qualifier;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL3NwbGluY29kZS9Eb3dubG9hZHMvRGV2ZWxvcC9hdXRvd2lyZWQvcHJvamVjdHMvYXV0b3dpcmVkL3NyYy9wdWJsaWMtYXBpLnRzIiwibWFwcGluZ3MiOiI7O0FBQUE7O0dBRUc7QUFDSCw0RUFBaUU7QUFBeEQsMENBQUEsU0FBUyxDQUFBO0FBQ2xCLDRFQUFpRTtBQUF4RCwwQ0FBQSxTQUFTLENBQUEiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiL1VzZXJzL3NwbGluY29kZS9Eb3dubG9hZHMvRGV2ZWxvcC9hdXRvd2lyZWQvcHJvamVjdHMvYXV0b3dpcmVkL3NyYy9wdWJsaWMtYXBpLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBQdWJsaWMgQVBJIFN1cmZhY2Ugb2YgYXV0b3dpcmVkXG4gKi9cbmV4cG9ydCB7IEF1dG93aXJlZCB9IGZyb20gJy4vbGliL2RlY29yYXRvcnMvYXV0b3dpcmVkLmRlY29yYXRvcic7XG5leHBvcnQgeyBRdWFsaWZpZXIgfSBmcm9tICcuL2xpYi9kZWNvcmF0b3JzL3F1YWxpZmllci5kZWNvcmF0b3InO1xuIl0sInZlcnNpb24iOjN9

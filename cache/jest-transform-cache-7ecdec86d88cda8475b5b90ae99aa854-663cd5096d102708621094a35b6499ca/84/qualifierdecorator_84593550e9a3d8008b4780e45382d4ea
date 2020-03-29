@@ -1,0 +1,168 @@
+b9054617145a8c3ce3629f5ba3e8983d
+"use strict";
+
+/* istanbul ignore next */
+function cov_hcxy8tch1() {
+  var path = "/Users/splincode/Downloads/Develop/autowired/projects/autowired/src/lib/decorators/qualifier.decorator.ts";
+  var hash = "86c09777c427d66a7649a4127ea09bf1d370a990";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/splincode/Downloads/Develop/autowired/projects/autowired/src/lib/decorators/qualifier.decorator.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 23
+        },
+        end: {
+          line: 3,
+          column: 55
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 4
+        },
+        end: {
+          line: 7,
+          column: 6
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 8
+        },
+        end: {
+          line: 6,
+          column: 55
+        }
+      },
+      "4": {
+        start: {
+          line: 9,
+          column: 0
+        },
+        end: {
+          line: 9,
+          column: 30
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "Qualifier",
+        decl: {
+          start: {
+            line: 4,
+            column: 9
+          },
+          end: {
+            line: 4,
+            column: 18
+          }
+        },
+        loc: {
+          start: {
+            line: 4,
+            column: 26
+          },
+          end: {
+            line: 8,
+            column: 1
+          }
+        },
+        line: 4
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 5,
+            column: 11
+          },
+          end: {
+            line: 5,
+            column: 12
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 28
+          },
+          end: {
+            line: 7,
+            column: 5
+          }
+        },
+        line: 5
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {},
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "86c09777c427d66a7649a4127ea09bf1d370a990"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+
+  cov_hcxy8tch1 = function () {
+    return actualCoverage;
+  };
+
+  return actualCoverage;
+}
+
+cov_hcxy8tch1();
+cov_hcxy8tch1().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const inject_token_1 =
+/* istanbul ignore next */
+(cov_hcxy8tch1().s[1]++, require("../utils/inject-token"));
+
+function Qualifier(token) {
+  /* istanbul ignore next */
+  cov_hcxy8tch1().f[0]++;
+  cov_hcxy8tch1().s[2]++;
+  return (target, key) => {
+    /* istanbul ignore next */
+    cov_hcxy8tch1().f[1]++;
+    cov_hcxy8tch1().s[3]++;
+    inject_token_1.injectToken(target, key, token);
+  };
+}
+
+/* istanbul ignore next */
+cov_hcxy8tch1().s[4]++;
+exports.Qualifier = Qualifier;

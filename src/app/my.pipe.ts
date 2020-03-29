@@ -7,6 +7,6 @@ export class MyPipe implements PipeTransform {
   @Autowired() app: AppService;
 
   public transform(value: any): any {
-    return value + ':' + this.app.hello();
+    return value + '::pipe(' + this.app.hello() + ')';
   }
 }

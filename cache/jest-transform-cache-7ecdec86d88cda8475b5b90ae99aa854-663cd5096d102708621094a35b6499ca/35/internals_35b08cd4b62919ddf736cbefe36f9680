@@ -1,0 +1,53 @@
+72ffdcfe6672925f2948e73e743ef708
+"use strict";
+
+/* istanbul ignore next */
+function cov_1gkhig7yfy() {
+  var path = "/Users/splincode/Downloads/Develop/autowired/projects/autowired/src/lib/interfaces/internals.ts";
+  var hash = "c42a34e0c21aed45c21c93fadc19081daed733bf";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/splincode/Downloads/Develop/autowired/projects/autowired/src/lib/interfaces/internals.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "c42a34e0c21aed45c21c93fadc19081daed733bf"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+
+  cov_1gkhig7yfy = function () {
+    return actualCoverage;
+  };
+
+  return actualCoverage;
+}
+
+cov_1gkhig7yfy();
+cov_1gkhig7yfy().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
