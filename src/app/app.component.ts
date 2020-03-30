@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Autowired } from '@angular-ru/autowired';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Autowired, ServiceScan } from '@angular-ru/autowired';
 import { AppService } from './app.service';
 
+@ServiceScan()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +10,7 @@ import { AppService } from './app.service';
 })
 export class AppComponent implements OnInit {
   @Autowired() public app: AppService;
+  @Autowired() public cd: ChangeDetectorRef;
 
   public title = '';
 

@@ -1,9 +1,10 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { Autowired } from '@angular-ru/autowired';
+import { Autowired, ServiceScan } from '@angular-ru/autowired';
 import { FeatureService } from './feature.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog.component';
 
+@ServiceScan()
 @Component({
   selector: 'feature',
   templateUrl: './feature.component.html'

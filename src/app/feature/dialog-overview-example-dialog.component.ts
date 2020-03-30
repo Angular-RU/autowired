@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
-import { Autowired, Qualifier } from '@angular-ru/autowired';
+import { Autowired, Qualifier, ServiceScan } from '@angular-ru/autowired';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
+@ServiceScan()
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: './dialog-overview-example-dialog.component.html'

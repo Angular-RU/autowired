@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Autowired } from '@angular-ru/autowired';
+import { Autowired, ServiceScan } from '@angular-ru/autowired';
 import { AnyService } from './any.service';
 
+@ServiceScan()
 @Injectable()
 export class AppService {
   @Autowired() public my: AnyService;
