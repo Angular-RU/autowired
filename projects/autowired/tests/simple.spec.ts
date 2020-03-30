@@ -1,9 +1,9 @@
 import { Component, Injectable } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { Autowired, enableInjectionTesting } from '@angular-ru/autowired';
+import { Autowired, enableInjectionTesting, ServiceScan } from '@angular-ru/autowired';
 
 describe('Simple usage @Autowired', () => {
-  enableInjectionTesting(TestBed);
+  // enableInjectionTesting(TestBed);
 
   it('should be correct ensure service', () => {
     @Injectable({ providedIn: 'root' })
@@ -13,6 +13,7 @@ describe('Simple usage @Autowired', () => {
       }
     }
 
+    @ServiceScan()
     @Component({
       selector: 'app',
       template: ''
@@ -30,7 +31,10 @@ describe('Simple usage @Autowired', () => {
       providers: [AppService]
     }).compileComponents();
 
-    const app = TestBed.createComponent(AppComponent);
-    expect(app.componentInstance.appRef().name).toEqual('appName');
+    const app = TestBed.createComponent(AppComponent).componentInstance;
+    console.log(app.app);
+
+    // const app = TestBed.createComponent(AppComponent);
+    // expect(app.componentInstance.appRef().name).toEqual('appName');
   });
 });

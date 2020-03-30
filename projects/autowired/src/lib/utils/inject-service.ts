@@ -10,23 +10,6 @@ export function injectService<T>(target: Object, key: Key, meta: InjectableMeta<
   const name: string = key.toString();
   const cachedId: string = `#_${name}__service`;
   const classRef: ClassRef<T> = getReflectType<T>(target, key);
-  const invalidInjection: boolean = !meta.ɵfac && !isTesting();
-
-  if (invalidInjection) {
-    throw new Error(
-      'Please use AOT for @Autowired() or use enableInjectionTesting() for test'
-    );
-  }
-
-  if (meta) {
-    const factory = meta.ɵfac;
-
-    meta.ɵfac = () => {
-      const instance = factory(target.constructor as any);
-      localInjector = directiveInject(INJECTOR);
-      return instance;
-    };
-  }
 
   Object.defineProperties(target, {
     [cachedId]: {
@@ -38,21 +21,11 @@ export function injectService<T>(target: Object, key: Key, meta: InjectableMeta<
       enumerable: true,
       configurable: true,
       get(): Type<T> {
-        if (isTesting()) {
-          return window[INJECTOR_TEST_BED].inject(classRef);
-        }
-
         if (this[cachedId]) {
           return this[cachedId];
         }
 
-        try {
-          if (!localInjector) {
-            localInjector = directiveInject(INJECTOR) || createInjector(INJECTOR);
-          }
-
-          this[cachedId] = localInjector?.get<T>(classRef) || directiveInject<T>(classRef);
-        } catch {}
+        console.log('this', this['__injector__'])
 
         return this[cachedId];
       }

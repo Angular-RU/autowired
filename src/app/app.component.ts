@@ -1,7 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { Autowired } from '@angular-ru/autowired';
+import { Autowired, ServiceScan } from '@angular-ru/autowired';
 import { AppService } from './app.service';
 
+@ServiceScan()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

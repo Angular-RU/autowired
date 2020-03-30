@@ -1,5 +1,7 @@
 export interface InjectableMeta<T> {
-  ɵfac: (...args: any[]) => any;
+  ['ɵprov']: (...args: any[]) => any;
+  ['ɵfac']: (...args: any[]) => any;
+  ['ɵcmp']: (...args: any[]) => any;
 }
 
 export type Key = string | symbol;
